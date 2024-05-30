@@ -1,13 +1,12 @@
-import Titulo from "../Titulo"
 import "./index.css"
-import tempo from "../../Assets/tempo.png"
+import React from "react";
 
 function Card(props){
     return(
         <div className="card">
-            <Titulo texto="22º"></Titulo>
-            <img src={tempo} alt="img" className="sol"></img>
-            <h4 className="estado"><code>{props.diasSemana}</code></h4>
+            <h1 className="titulo">{props.temperatura}</h1>
+            <img src={props.time} alt="img" className="sol"></img>
+            <h4 className="diasSemana"><code>{props.diasSemana}</code></h4>
         </div>
     )
 }

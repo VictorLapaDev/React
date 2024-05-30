@@ -1,27 +1,45 @@
 import './App.css';
+import Butao from './Components/Button';
 import Card from "./Components/Card"
-import {useState} from "react"
+import SearchBar from './Components/SearchBar';
 
 function App() {
-  const diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"];
-  const [contadorEstado, setContadorEstado] = useState(0);
-  let contador = 0;
 
-  const contaClique = () => {
-    console.log(contador = contador+1);
+
+  function search() {
+    //Pegar o nome da cidade para ver a temperatura
+    var local = document.getElementById("input").value;
+    console.log(local);
   }
+
+  
+
+  const diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"];
+  const tempSemana = [45, 23, 23, 54, 23, 12, 43];
   
   return (
     <div className='App'>
-      <button onClick={() => {setContadorEstado(contadorEstado + 1)}}>Clique Aqui</button>
-      <h1>{contadorEstado}</h1>
-      <button onClick={contaClique}>Clique aqui</button>
-      <h1>{contador}</h1>
+
+
+      <div className='search'>
+        <SearchBar/>
+      </div>
+      
+      <Butao funcao={search}></Butao>
+
+      <div className='cards'>
+
       {
-        diasSemana.map((dia) =>{
-          return(<Card diasSemana={dia}/>)
-        })
+          diasSemana.map((dia, index) => {
+            return (
+              <Card key={index} diasSemana={dia} temperatura={tempSemana[index] + "º"} /*time={img[index]}*/ />
+            );
+          })
+
       }
+      </div>
+
+
     </div>
   );
 }
