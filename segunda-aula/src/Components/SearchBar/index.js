@@ -30,7 +30,7 @@ function SearchBar({ onCitySelect }) {
     <div>
       <select className="input" onChange={value => setTeste(value)}>
         {districts.map((district) => (
-          <option key={district.id} value={district.id}>
+          <option key={district.id} value={district.nome}>
             {district.nome}
           </option>
         ))}
