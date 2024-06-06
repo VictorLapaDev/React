@@ -17,7 +17,7 @@ function App() {
         var temperaturas = [];
 
         for(var i = 3; i <= 35; i+=8){
-             temperaturas.push((dados.list[i].main.temp).toFixed(1) + "º");
+             temperaturas.push((dados.list[i].main.temp).toFixed(0) + "ºC");
         }
 
 
